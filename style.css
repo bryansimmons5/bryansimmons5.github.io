@@ -4,15 +4,19 @@
   --text: #e8eefc;
   --muted: #a8b3cf;
   --border: rgba(232, 238, 252, 0.10);
+
+  /* NEW */
+  --accent: #BF5700;
+  --accent-soft: #e07a2f;
 }
 
 * { box-sizing: border-box; }
 body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: radial-gradient(1200px 600px at 20% 0%, rgba(124, 92, 255, 0.25), transparent),
-              radial-gradient(800px 500px at 90% 10%, rgba(0, 200, 255, 0.18), transparent),
-              var(--bg);
+  background: radial-gradient(1000px 500px at 20% 0%, rgba(191, 87, 0, 0.25), transparent),
+            radial-gradient(800px 400px at 90% 10%, rgba(224, 122, 47, 0.18), transparent),
+            var(--bg);
   color: var(--text);
 }
 
@@ -23,12 +27,18 @@ body {
 }
 
 .card {
-  background: rgba(18, 26, 42, 0.85);
-  border: 1px solid var(--border);
+  background: rgba(18, 26, 42, 0.88);
+  border: 1px solid rgba(191, 87, 0, 0.25);
   border-radius: 16px;
   padding: 18px 18px;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
   backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px rgba(191, 87, 0, 0.35);
 }
 
 .header {
@@ -39,23 +49,38 @@ body {
   flex-wrap: wrap;
 }
 
-h1 { margin: 0 0 6px; font-size: 32px; letter-spacing: -0.02em; }
+h1 {
+  margin: 0 0 6px;
+  font-size: 34px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--accent);
+}
 .subtitle { margin: 0 0 6px; color: var(--muted); }
 
 .small { color: var(--muted); margin: 8px 0 0; font-size: 14px; }
 a { color: var(--text); text-decoration: none; border-bottom: 1px solid rgba(232,238,252,0.25); }
-a:hover { border-bottom-color: rgba(232,238,252,0.7); }
+a:hover {
+  color: var(--accent-soft);
+  border-bottom-color: var(--accent-soft);
+}
 
 .links { display: flex; gap: 10px; flex-wrap: wrap; }
 .btn {
-  padding: 10px 12px;
+  padding: 10px 16px;
   border-radius: 12px;
-  background: rgba(232, 238, 252, 0.06);
-  border: 1px solid var(--border);
+  background: linear-gradient(135deg, #BF5700, #e07a2f);
+  border: none;
   text-decoration: none;
   font-weight: 600;
+  color: white;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.btn:hover { background: rgba(232, 238, 252, 0.10); }
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(191, 87, 0, 0.6);
+}
 
 .grid {
   display: grid;
